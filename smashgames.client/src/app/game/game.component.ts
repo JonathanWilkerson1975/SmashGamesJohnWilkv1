@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { DataService } from '../data.service';
+import { Game } from '../Models/game';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-game',
@@ -6,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent {
+
+  games$: BehaviorSubject<Game[]> = this.data.games$;
+
+  constructor(private data: DataService) { }
 
 }
